@@ -6,7 +6,7 @@
       <a href="#">Blog</a>
     </div>
     <div class="link">
-      <a href="#">Photos</a>
+      <a href="/photos">Photos</a>
     </div>
     <div class="link">
       <a href="https://www.linkedin.com/in/josephm-lloyd/">LinkedIn</a>
