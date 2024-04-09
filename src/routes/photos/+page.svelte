@@ -33,11 +33,27 @@
     let portraits = await getPhotoURIArray("portrait");
     let landscapes = await getPhotoURIArray("landscape");
     let allURIs = [...portraits, ...landscapes];
-    console.log(allURIs);
     return allURIs;
   }
 
+  function shuffleArray(array: any[]) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+  }
+
+  function openModal(photoURI: string) {
+    modalContent.src = photoURI;
+    modal.style.display = "block";
+  }
+
   let photoURIs = fetchAllPhotoURIs();
+  let modal: HTMLElement;
+  let modalContent: HTMLImageElement;
 </script>
 
 <main>
@@ -46,22 +62,95 @@
   {#await photoURIs}
     <!-- LOADING ICON HERE -->
   {:then photoURIs}
-    {#each photoURIs as photoURI}
-      <img src={photoURI} alt="" width="200px">
+    {#each shuffleArray(photoURIs) as photoURI}
+      <img src={photoURI} alt="" width="200px"
+      on:click={() => openModal(photoURI)}>
     {/each}
   {/await}
 </section>
-<!-- <section class="landscapes"></section> -->
+<div class="modal" bind:this={modal}>
+  <span class="close"
+  on:click={() => modal.style.display = "none"}>&times;</span>
+  <img class="modal-content" bind:this={modalContent}/>
+</div>
 </main>
 
 <style>
   .photo-section {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%; 
+    grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 25% 25% 25% 25%;
+    max-width: 100vw;
+    overflow: hidden;
+    align-items: center;
   }
 
   .photo-section img {
     padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100px;
+    overflow-y: visible;
   }
+
+  .photo-section img:hover {
+    opacity: 80%;
+    cursor: pointer;
+  }
+
+  .modal {
+    display: none;
+    left: 0;
+    right: 0;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    z-index: 10;
+    position:fixed;
+    padding:1rem;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 700px;
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+  }
+
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .close:hover,.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  @media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
 </style>
