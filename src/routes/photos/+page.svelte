@@ -2,13 +2,13 @@
   import { supabase } from "$lib/supabaseClient";
 
   async function listPhotos(orientation: string) {
-      const response = await supabase
-      .storage
-      .from('photos')
-      .list(orientation, {
-        limit: 20,
-        offset: 0
-      });
+    const response = await supabase
+    .storage
+    .from('photos')
+    .list(orientation, {
+      limit: 20,
+      offset: 0
+    });
 
     if(!response.error) {
       return response.data;
@@ -58,21 +58,24 @@
 
 <main>
 <h1>Photos</h1>
+<div class="modal" bind:this={modal} on:click={() => modal.style.display = "none"}>
+  <span class="close"
+  on:click={() => modal.style.display = "none"} on:click|stopPropagation>&times;</span>
+  <img class="modal-content" bind:this={modalContent}/>
+</div>
 <section class="photo-section">
   {#await photoURIs}
     <!-- LOADING ICON HERE -->
   {:then photoURIs}
     {#each shuffleArray(photoURIs) as photoURI}
-      <img src={photoURI} alt="" width="200px"
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+      <img class="grow" src={photoURI} alt="" width="200px"
       on:click={() => openModal(photoURI)}>
     {/each}
   {/await}
 </section>
-<div class="modal" bind:this={modal}>
-  <span class="close"
-  on:click={() => modal.style.display = "none"}>&times;</span>
-  <img class="modal-content" bind:this={modalContent}/>
-</div>
+
 </main>
 
 <style>
@@ -96,6 +99,14 @@
   .photo-section img:hover {
     opacity: 80%;
     cursor: pointer;
+  }
+
+  .grow { 
+    transition: all .2s ease-in-out; 
+  }
+
+  .grow:hover { 
+      transform: scale(1.1); 
   }
 
   .modal {
@@ -148,9 +159,29 @@
     cursor: pointer;
   }
 
+  @media only screen and (max-width: 600px) {
+    .photo-section {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .photo-section img {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 300px;
+    overflow-y: visible;
+  }
+
+  .photo-section img:hover {
+    opacity: 80%;
+    cursor: pointer;
+  }
+}
+
   @media only screen and (max-width: 700px){
     .modal-content {
-        width: 100%;
+        width: 90%;
     }
 }
 </style>

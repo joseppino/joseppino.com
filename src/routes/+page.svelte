@@ -1,4 +1,3 @@
-
 <main>
   <h1>Joseph Lloyd</h1>
   <section class="links">
@@ -15,7 +14,7 @@
       <a href="#">CV</a>
     </div>
     <div class="link">
-      <a href="#">Code</a>
+      <a href="https://github.com/joseppino?tab=repositories">Projects</a>
     </div>
   </section>
 </main>
