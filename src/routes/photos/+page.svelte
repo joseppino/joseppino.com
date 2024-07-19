@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ImageModal from "$lib/components/ImageModal.svelte";
   import { supabase } from "$lib/supabaseClient";
 
   async function listPhotos(orientation: string) {
@@ -46,32 +47,30 @@
     return array;
   }
 
-  function openModal(photoURI: string) {
-    modalContent.src = photoURI;
-    modal.style.display = "block";
-  }
-
   let photoURIs = fetchAllPhotoURIs();
-  let modal: HTMLElement;
-  let modalContent: HTMLImageElement;
+  let showModal: boolean = false;
+  let chosenPhotoURI: string;
+
+  function openModal(uri: string) {
+    chosenPhotoURI = uri;
+    showModal = true;
+  }
 </script>
 
 <main>
 <h1>Photos</h1>
-<div class="modal" bind:this={modal} on:click={() => modal.style.display = "none"}>
-  <span class="close"
-  on:click={() => modal.style.display = "none"} on:click|stopPropagation>&times;</span>
-  <img class="modal-content" bind:this={modalContent}/>
-</div>
+<ImageModal bind:showModal bind:photoURI={chosenPhotoURI} />
 <section class="photo-section">
   {#await photoURIs}
-    <!-- LOADING ICON HERE -->
+    <h3>Loading...</h3>
   {:then photoURIs}
     {#each shuffleArray(photoURIs) as photoURI}
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <img class="grow" src={photoURI} alt="" width="200px"
-      on:click={() => openModal(photoURI)}>
+      on:click={() => {
+        openModal(photoURI);
+      }}>
     {/each}
   {/await}
 </section>
@@ -109,30 +108,6 @@
       transform: scale(1.1); 
   }
 
-  .modal {
-    display: none;
-    left: 0;
-    right: 0;
-    overflow-y:scroll;
-    overflow-x:hidden;
-    z-index: 10;
-    position:fixed;
-    padding:1rem;
-    width:100%;
-    height:100%;
-    background-color: rgba(0,0,0,0.8);
-  }
-
-  .modal-content {
-    margin: auto;
-    display: block;
-    max-width: 700px;
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-  }
-
   @-webkit-keyframes zoom {
     from {-webkit-transform:scale(0)}
     to {-webkit-transform:scale(1)}
@@ -141,22 +116,6 @@
   @keyframes zoom {
     from {transform:scale(0)}
     to {transform:scale(1)}
-  }
-
-  .close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-
-  .close:hover,.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
   }
 
   @media only screen and (max-width: 600px) {
@@ -177,11 +136,5 @@
     opacity: 80%;
     cursor: pointer;
   }
-}
-
-  @media only screen and (max-width: 700px){
-    .modal-content {
-        width: 90%;
-    }
 }
 </style>
