@@ -37,10 +37,10 @@
 
 	dialog {
 		max-width: 64em;
-		border-radius: 0.2em;
+		border-radius: 0.4em;
 		border: none;
 		padding: 0;
-		background-color: var(--colour2);
+		background-color: rgba(0, 0, 0, 0.6);;
 	}
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.3);
