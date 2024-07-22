@@ -1,5 +1,6 @@
 <script lang="ts">
   import ImageModal from "$lib/components/ImageModal.svelte";
+  import PhotoGrid from "$lib/components/PhotoGrid.svelte";
   import { supabase } from "$lib/supabaseClient";
 
   async function listPhotos(orientation: string) {
@@ -50,6 +51,7 @@
   let photoURIs = fetchAllPhotoURIs();
   let showModal: boolean = false;
   let chosenPhotoURI: string;
+  $: openModal(chosenPhotoURI);
 
   function openModal(uri: string) {
     chosenPhotoURI = uri;
@@ -60,20 +62,21 @@
 <main>
 <h1>Photos</h1>
 <ImageModal bind:showModal bind:photoURI={chosenPhotoURI} />
-<section class="photo-section">
+<!-- <section class="photo-section"> -->
   {#await photoURIs}
     <h3>Loading...</h3>
   {:then photoURIs}
-    {#each shuffleArray(photoURIs) as photoURI}
+    <PhotoGrid photoUriList={shuffleArray(photoURIs)} bind:clickedPhotoUri={chosenPhotoURI}/>
+    <!-- {#each shuffleArray(photoURIs) as photoURI} -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-      <img class="grow" src={photoURI} alt="" width="200px"
-      on:click={() => {
-        openModal(photoURI);
-      }}>
-    {/each}
+      <!-- <img class="grow" src={photoURI} alt="" width="200px" -->
+      <!-- on:click={() => { -->
+        <!-- // openModal(photoURI); -->
+      <!-- }}> -->
+    <!-- {/each} -->
   {/await}
-</section>
+<!-- </section> -->
 
 </main>
 

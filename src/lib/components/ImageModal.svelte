@@ -19,7 +19,7 @@
 	>
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div on:click|stopPropagation>
-			<img src={photoURI} alt="" width="400px">
+			<img class="modal-img" src={photoURI} alt="">
 			<!-- svelte-ignore a11y-autofocus -->
 			<button type="button" class="pure-button" autofocus
 			style="font-size: 70%;"
@@ -29,14 +29,26 @@
 {/if}
 
 <style>
-	@media only screen and (max-width: 500px) {
-		img {
-			width: 325px;
+	.modal-img {
+		max-width: 95vw;
+		max-height: 80vh;
+	}
+	
+	/* Hide dialog popup if screen is smaller than 500px in width or height */
+	@media only screen and (max-width: 500px){
+		dialog {
+			display: none;
+		}
+	}
+
+	@media only screen and (max-height: 500px){
+		dialog {
+			display: none;
 		}
 	}
 
 	dialog {
-		max-width: 64em;
+		max-width: 96em;
 		border-radius: 0.4em;
 		border: none;
 		padding: 0;
