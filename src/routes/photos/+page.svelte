@@ -59,85 +59,13 @@
   }
 </script>
 
-<main>
-<h1>Photos</h1>
-<ImageModal bind:showModal bind:photoURI={chosenPhotoURI} />
-<!-- <section class="photo-section"> -->
-  {#await photoURIs}
-    <h3>Loading...</h3>
-  {:then photoURIs}
-    <PhotoGrid photoUriList={shuffleArray(photoURIs)} bind:clickedPhotoUri={chosenPhotoURI}/>
-    <!-- {#each shuffleArray(photoURIs) as photoURI} -->
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-      <!-- <img class="grow" src={photoURI} alt="" width="200px" -->
-      <!-- on:click={() => { -->
-        <!-- // openModal(photoURI); -->
-      <!-- }}> -->
-    <!-- {/each} -->
-  {/await}
-<!-- </section> -->
-
-</main>
-
-<style>
-  .photo-section {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 25% 25% 25% 25%;
-    max-width: 100vw;
-    overflow: hidden;
-    align-items: center;
-  }
-
-  .photo-section img {
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100px;
-    overflow-y: visible;
-  }
-
-  .photo-section img:hover {
-    opacity: 80%;
-    cursor: pointer;
-  }
-
-  .grow { 
-    transition: all .2s ease-in-out; 
-  }
-
-  .grow:hover { 
-      transform: scale(1.1); 
-  }
-
-  @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)}
-    to {-webkit-transform:scale(1)}
-  }
-
-  @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
-  }
-
-  @media only screen and (max-width: 600px) {
-    .photo-section {
-      display: flex;
-      flex-direction: column;
-  }
-
-  .photo-section img {
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 300px;
-    overflow-y: visible;
-  }
-
-  .photo-section img:hover {
-    opacity: 80%;
-    cursor: pointer;
-  }
-}
-</style>
+<div class="content">
+  <h1>Photos</h1>
+  <ImageModal bind:showModal bind:photoURI={chosenPhotoURI} />
+  <!-- <section class="photo-section"> -->
+    {#await photoURIs}
+      <h3>Loading...</h3>
+    {:then photoURIs}
+      <PhotoGrid photoUriList={shuffleArray(photoURIs)} bind:clickedPhotoUri={chosenPhotoURI}/>
+    {/await}
+</div>

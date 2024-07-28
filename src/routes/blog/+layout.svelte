@@ -1,11 +1,12 @@
-<main>
+<div class="content">
   <slot />
-</main>
+</div>
 
 <style>
-  main {
-    width: 900px;
-    height: 100vh;
+  .content {
+    width: 1200px;
+    max-width: 100vw;
+    /* height: 100vh; */
     background-color: #001D3D;
   }
 </style>

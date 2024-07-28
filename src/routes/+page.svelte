@@ -1,4 +1,4 @@
-<main>
+<div class="content">
   <h1>Joseph Lloyd</h1>
   <section class="links">
     <div class="link">
@@ -17,11 +17,12 @@
       <a href="#">CV</a>
     </div>
   </section>
-</main>
+</div>
 
 <style>
-  main {
-    width: 900px;
+  .content {
+    width: 1200px;
+    max-width: 100vw;
     height: 100vh;
     background-color: #001D3D;
   }

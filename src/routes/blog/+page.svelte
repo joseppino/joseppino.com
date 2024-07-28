@@ -5,7 +5,7 @@
   const blogPosts = data.data;
 </script>
 
-<main>
+<div class="content">
   <h1>Blog</h1>
   {#if blogPosts}
     <hr>
@@ -17,12 +17,18 @@
       <hr>
     {/each}
   {/if}
-</main>
+</div>
 
 <style>
-  main {
-    width: 900px;
+  /* .content {
+    width: 1200px;
+    max-width: 100vw;
     height: 100vh;
     background-color: #001D3D;
+  } */
+
+  p {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 </style>
