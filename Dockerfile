@@ -2,6 +2,8 @@ FROM node:22-alpine AS builder
 
 RUN mkdir /app
 
+COPY . /app
+
 RUN cd /app && npm install && npm run build
 
 FROM node:22-alpine 
