@@ -1,22 +1,29 @@
-FROM node:22-alpine AS builder
+FROM node:22-alpine AS sk-build
+WORKDIR /usr/src/app
 
-RUN mkdir /app
+ARG TZ=Europe/London
+ARG PUBLIC_HELLO
 
-COPY . /app
+COPY . /usr/src/app
+RUN apk --no-cache add curl tzdata
+RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN npm install
+RUN npm run build
 
-RUN cd /app && npm install && npm run build
+FROM node:22-alpine
+WORKDIR /usr/src/app
 
-FROM node:22-alpine 
+ARG TZ=Europe/London
+RUN apk --no-cache add curl tzdata
+RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN mkdir /app
+COPY --from=sk-build /usr/src/app/package.json /usr/src/app/package.json
+COPY --from=sk-build /usr/src/app/package-lock.json /usr/src/app/package-lock.json
 
-COPY --from=builder /app/build /app/build
-COPY --from=builder /app/package.json /app/
-COPY --from=builder /app/.env.local /app/
+RUN npm i --only=production
 
-RUN cd /app && \
-  npm install --omit=dev
-  # node --env-file=.env.local build
-WORKDIR /app
+COPY --from=sk-build /usr/src/app/build /usr/src/app/build
+# COPY --from=builder /usr/src/app/.env.local /app/.env.local
 
-CMD node --env-file=.env.local build
+EXPOSE 3000
+CMD ["node", "build/index.js"]
