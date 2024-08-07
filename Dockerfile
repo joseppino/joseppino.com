@@ -23,7 +23,6 @@ COPY --from=sk-build /usr/src/app/package-lock.json /usr/src/app/package-lock.js
 RUN npm i --only=production
 
 COPY --from=sk-build /usr/src/app/build /usr/src/app/build
-# COPY --from=builder /usr/src/app/.env.local /app/.env.local
 
 EXPOSE 7667
 CMD PORT=7667 node build

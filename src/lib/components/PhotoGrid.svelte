@@ -3,8 +3,6 @@
   export let clickedPhotoUri: string = "";
 
   let chunkedPhotoList = chunk(photoUriList, 3);
-  console.log(chunkedPhotoList);
-  
 
   function chunk(arr: any[], chunkSize: number) {
     let chunks: any[] = [];

@@ -26,7 +26,7 @@ export const actions = {
           body: body
         });
         if(error) {
-          console.log(error);
+          // console.log(error);
         }
       } else {
         error(403, "Forbidden");

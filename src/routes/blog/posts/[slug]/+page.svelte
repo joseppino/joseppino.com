@@ -10,7 +10,6 @@
     blogPost = data.data[0]
     parsedBody = marked.parse(blogPost.body);
   }
-  console.log(blogPost);
   
 </script>
 

@@ -15,7 +15,6 @@
     if(!response.error) {
       return response.data;
     } else {
-      console.log(response.error.message);
       throw new Error(response.error.message);
     }
   }

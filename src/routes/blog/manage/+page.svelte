@@ -60,5 +60,6 @@ import type { PageData } from "../$types";
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
   }
 </style>
