@@ -55,4 +55,4 @@ jobs:
          server: https://joseppino.com
          app: 'personal-site'
          token: '${{ secrets.APP_TOKEN }}'
-         image: 'ghcr.io/joseppino/joseppino.com:latest'
+         image: 'ghcr.io/joseppino/joseppino.com:master'
