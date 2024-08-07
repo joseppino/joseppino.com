@@ -25,5 +25,6 @@ RUN npm i --only=production
 COPY --from=sk-build /usr/src/app/build /usr/src/app/build
 # COPY --from=builder /usr/src/app/.env.local /app/.env.local
 
-EXPOSE 3000
-CMD ["node", "build/index.js"]
+EXPOSE 7667
+CMD PORT=7667 node build
+# CMD ["node", "build/index.js"]
