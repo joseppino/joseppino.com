@@ -1,11 +1,11 @@
-import { ADMIN_EMAIL } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
 import { supabase } from '$lib/supabaseClient';
 
 export const load: PageServerLoad = async ({ cookies }) => {
 	const emailcookie = cookies.get("useremail");
-  if(emailcookie === ADMIN_EMAIL) {
+  if(emailcookie === env.ADMIN_EMAIL) {
     return { emailcookie };
   }
   error(403, "Forbidden");
@@ -18,7 +18,7 @@ export const actions = {
     const body = formData.get('body')?.toString();
     
     if(title && body) {
-      if(cookies.get("useremail") === ADMIN_EMAIL) {
+      if(cookies.get("useremail") === env.ADMIN_EMAIL) {
         const { error } = await supabase
         .from("blog_posts")
         .insert({

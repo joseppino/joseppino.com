@@ -2,7 +2,6 @@ FROM node:22-alpine AS sk-build
 WORKDIR /usr/src/app
 
 ARG TZ=Europe/London
-ARG PUBLIC_SUPABASE_KEY
 
 COPY . /usr/src/app
 RUN apk --no-cache add curl tzdata

@@ -1,6 +1,7 @@
 import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component, n as noop, a as safe_not_equal } from './chunks/ssr-DDn0MG0-.js';
 import { H as HttpError, j as json, t as text, R as Redirect, S as SvelteKitError, A as ActionFailure } from './chunks/index-CvuFLVuQ.js';
 import { d as decode_pathname, h as has_data_suffix, s as strip_data_suffix, a as decode_params, n as normalize_path, b as disable_search, c as add_data_suffix, m as make_trackable, r as resolve } from './chunks/exports-BGi7-Rnc.js';
+import { p as public_env, s as safe_public_env, a as set_private_env, b as set_public_env, c as set_safe_public_env } from './chunks/shared-server-BfUoNEXY.js';
 
 let base = "";
 let assets = base;
@@ -12,14 +13,6 @@ function override(paths) {
 function reset() {
   base = initial.base;
   assets = initial.assets;
-}
-let public_env = {};
-let safe_public_env = {};
-function set_public_env(environment) {
-  public_env = environment;
-}
-function set_safe_public_env(environment) {
-  safe_public_env = environment;
 }
 function afterUpdate() {
 }
@@ -201,7 +194,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "77r657"
+  version_hash: "1j7l2j4"
 };
 async function get_hooks() {
   return {};
@@ -4150,8 +4143,11 @@ class Server {
       public_prefix: this.#options.env_public_prefix,
       private_prefix: this.#options.env_private_prefix
     };
-    filter_private_env(env, prefixes);
+    const private_env = filter_private_env(env, prefixes);
     const public_env2 = filter_public_env(env, prefixes);
+    set_private_env(
+      private_env
+    );
     set_public_env(
       public_env2
     );

@@ -1,11 +1,11 @@
 import type { PageServerLoad, Actions } from './$types';
 import { supabase } from '$lib/supabaseClient';
-import { ADMIN_EMAIL } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 export const load: PageServerLoad = async ({ cookies }) => {
 	const emailcookie = cookies.get("useremail");
   let signedIn: boolean = false;
-  if(emailcookie === ADMIN_EMAIL) {
+  if(emailcookie === env.ADMIN_EMAIL) {
     signedIn = true;
   }
   return { signedIn };
