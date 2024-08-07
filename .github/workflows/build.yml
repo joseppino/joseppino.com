@@ -47,7 +47,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            PUBLIC_HELLO=world
+            PUBLIC_SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im51eWF2Z2RmZ25mc2l6amN2cmRzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDM4NTI5NjgsImV4cCI6MjAxOTQyODk2OH0.pny8zqCICuhjqe5Qz-UvHXiOqvth5yyWsEbYk_2VElg
 
       - name: Deploy on CapRover
         uses: caprover/deploy-from-github@v1.1.2
