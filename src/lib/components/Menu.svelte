@@ -21,3 +21,13 @@
     </li>
   </ul>
 </div>
+
+<style>
+  a {
+    color: var(--colour5) !important;
+  }
+  
+  a:visited {
+    color: var(--colour4) !important;
+  }
+</style>
