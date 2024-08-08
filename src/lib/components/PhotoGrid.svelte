@@ -20,7 +20,12 @@
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <img class="pure-img grow" src={photoUri} alt=""
-      on:click={() => clickedPhotoUri = photoUri}>
+      on:click={() => {
+        // check screen is adequate size for popup image
+        if (window.screen.width > 600) {
+          clickedPhotoUri = photoUri;
+        }
+      }}>
     {/each}
   {/each}
 </div>
