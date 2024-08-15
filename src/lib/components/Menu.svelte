@@ -30,4 +30,9 @@
   a:visited {
     color: var(--colour4) !important;
   }
+
+  a:hover {
+    background-color: var(--colour1);
+    filter: contrast(0.75)
+  }
 </style>
