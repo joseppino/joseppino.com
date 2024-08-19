@@ -1,5 +1,5 @@
 <div class="top-menu pure-menu pure-menu-horizontal pure-menu-scrollable">
-  <!-- <a href="/" class="pure-menu-heading pure-menu-link">Home</a> -->
+  <!-- <a href="/" class="pure-menu-heading pure-menu-link"><img src="favicon.png" alt="" width="24px"></a> -->
   <ul class="pure-menu-list">
     <li class="pure-menu-item">
       <a href="/" class="pure-menu-link">Home</a>
@@ -17,17 +17,22 @@
         <a href="https://www.linkedin.com/in/josephm-lloyd/" class="pure-menu-link">LinkedIn</a>
     </li>
     <li class="pure-menu-item">
-      <a href="#" class="pure-menu-link">CV</a>
+      <a href="https://docs.google.com/document/d/11FkygEOJKSYeWJd9Zr2Qc0kxyULZT-tPqJTxdvSpWGc/edit?usp=sharing" class="pure-menu-link">CV</a>
     </li>
   </ul>
 </div>
 
 <style>
   a {
-    color: var(--colour5) !important;
+    color: var(--colour5);
   }
   
   a:visited {
-    color: var(--colour4) !important;
+    color: var(--colour4);
+  }
+
+  li a:hover {
+    color: var(--colour1);
+    opacity: 100%;
   }
 </style>
