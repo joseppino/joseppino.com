@@ -1,5 +1,5 @@
 <div class="top-menu pure-menu pure-menu-horizontal pure-menu-scrollable">
-  <!-- <a href="/" class="pure-menu-heading pure-menu-link"><img src="favicon.png" alt="" width="24px"></a> -->
+  <!-- <a href="/" class="pure-menu-heading pure-menu-link"><img src="favicon.png" alt="" width="24px" height="24px"></a> -->
   <ul class="pure-menu-list">
     <li class="pure-menu-item">
       <a href="/" class="pure-menu-link">Home</a>
