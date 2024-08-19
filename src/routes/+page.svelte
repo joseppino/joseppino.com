@@ -14,7 +14,7 @@
       <a href="https://www.linkedin.com/in/josephm-lloyd/">LinkedIn</a>
     </div>
     <div class="link">
-      <a href="#">CV</a>
+      <a href="https://docs.google.com/document/d/11FkygEOJKSYeWJd9Zr2Qc0kxyULZT-tPqJTxdvSpWGc/edit">CV</a>
     </div>
   </section>
 </div>
@@ -32,6 +32,5 @@
   .link a {
     font-size: x-large;
   }
-
   
 </style>

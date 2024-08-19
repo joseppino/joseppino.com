@@ -20,6 +20,10 @@ body {
 a {
   color: var(--colour5);
 }
+
+a:hover {
+  opacity: 80%;
+}
  
 a:visited {
   color: var(--colour4);
