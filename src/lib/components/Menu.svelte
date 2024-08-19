@@ -11,10 +11,10 @@
         <a href="/photos" class="pure-menu-link">Photos</a>
     </li>
     <li class="pure-menu-item">
-      <a href="https://github.com/joseppino?tab=repositories" class="pure-menu-link">Projects</a>
+      <a href="/projects" class="pure-menu-link">Projects</a>
     </li>
     <li class="pure-menu-item">
-        <a href="https://www.linkedin.com/in/josephm-lloyd/" class="pure-menu-link">LinkedIn</a>
+        <a href="https://github.com/joseppino" class="pure-menu-link">GitHub</a>
     </li>
     <li class="pure-menu-item">
       <a href="https://docs.google.com/document/d/11FkygEOJKSYeWJd9Zr2Qc0kxyULZT-tPqJTxdvSpWGc/edit?usp=sharing" class="pure-menu-link">CV</a>
@@ -29,11 +29,6 @@
   
   a:visited {
     color: var(--colour4);
-  }
-
-  li a:hover {
-    color: var(--colour1);
-    opacity: 100%;
   }
 
   a:hover {

@@ -10,10 +10,10 @@
       <a href="/photos">Photos</a>
     </div>
     <div class="link">
-      <a href="https://github.com/joseppino?tab=repositories">Projects</a>
+      <a href="/projects">Projects</a>
     </div>
     <div class="link">
-      <a href="https://www.linkedin.com/in/josephm-lloyd/">LinkedIn</a>
+      <a href="https://github.com/joseppino">GitHub</a>
     </div>
     <div class="link">
       <a href="https://docs.google.com/document/d/11FkygEOJKSYeWJd9Zr2Qc0kxyULZT-tPqJTxdvSpWGc/edit">CV</a>
