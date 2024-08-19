@@ -35,4 +35,9 @@
     color: var(--colour1);
     opacity: 100%;
   }
+
+  a:hover {
+    background-color: var(--colour1);
+    filter: contrast(0.75)
+  }
 </style>
