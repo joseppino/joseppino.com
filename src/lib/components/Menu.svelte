@@ -35,4 +35,8 @@
     background-color: var(--colour1);
     filter: contrast(0.75)
   }
+
+  a:focus {
+    background-color: var(--colour1);
+  }
 </style>
