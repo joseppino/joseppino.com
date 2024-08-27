@@ -5,9 +5,9 @@
 <div class="project-items-container">
   <ul>
     <li>
-      <div class="project-item">
-        <span><a href="https://flaggle.joseppino.com">Flaggle</a>🏴‍☠️</span>
-        <p>A simple flag guessing game made with SvelteKit</p>
+        <div class="project-item">
+          <span><a href="https://flaggle.joseppino.com">Flaggle</a>🏴‍☠️</span>
+          <p>A simple flag guessing game made with SvelteKit</p>
         </div>
     </li>
     <!-- <li>
@@ -30,7 +30,9 @@
     width: 300px;
     margin: 10px;
     margin-bottom: 20px;
-    padding: 5px;
+    padding: 10px;
+    background-color: var(--colour3);
+    border: 1px inset var(--colour1);
     box-shadow: -3px 3px 10px var(--colour1);
   }
 
