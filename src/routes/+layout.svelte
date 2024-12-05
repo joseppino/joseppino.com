@@ -16,5 +16,6 @@
     min-height: 100vh;
     background-color: #001D3D;
     box-shadow: 1em 0.75em 2.5em var(--colour3);
+    margin: 0px 10px;
   }
 </style>
