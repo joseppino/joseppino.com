@@ -11,7 +11,7 @@
 
 <style>
   main {
-    width: 1080px;
+    min-width: 1080px;
     max-width: 100vw;
     min-height: 100vh;
     background-color: #001D3D;
