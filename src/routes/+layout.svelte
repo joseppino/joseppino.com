@@ -22,6 +22,7 @@
   @media only screen and (max-width: 600px) {
   main {
     width: 100vw;
+    min-width: unset;
   }
 }
 
