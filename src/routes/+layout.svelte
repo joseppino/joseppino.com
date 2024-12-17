@@ -18,4 +18,11 @@
     box-shadow: 1em 0.75em 2.5em var(--colour3);
     margin: 0px 10px;
   }
+
+  @media only screen and (max-width: 600px) {
+  main {
+    width: 100vw;
+  }
+}
+
 </style>
