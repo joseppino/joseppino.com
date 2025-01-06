@@ -23,6 +23,7 @@
 	"type": "module",
 	"dependencies": {
 		"@supabase/supabase-js": "^2.39.1",
+		"@sveltejs/adapter-cloudflare": "^5.0.0",
 		"dotenv": "^16.4.5",
 		"marked": "^13.0.2",
 		"purecss": "^3.0.0"
