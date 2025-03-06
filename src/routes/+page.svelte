@@ -1,38 +1,22 @@
+<script>
+
+  import { PUBLIC_SB_URL } from "$env/static/public";
+
+</script>
 <!-- Main Page -->
 
 <div class="content">
   <h1>Joseph Lloyd</h1>
-  <section class="links">
-    <div class="link">
-      <a href="/blog">Blog</a>
-    </div>
-    <div class="link">
-      <a href="/photos">Photos</a>
-    </div>
-    <div class="link">
-      <a href="/projects">Projects</a>
-    </div>
-    <div class="link">
-      <a href="https://github.com/joseppino">GitHub</a>
-    </div>
-    <div class="link">
-      <a href="https://docs.google.com/document/d/11FkygEOJKSYeWJd9Zr2Qc0kxyULZT-tPqJTxdvSpWGc/edit">CV</a>
-    </div>
-  </section>
+  <img src={`${PUBLIC_SB_URL}/storage/v1/object/public/photos/showcase/joe.png`} alt="">
+  <p>Hi! Welcome to my website.</p>
 </div>
 
 <style>
-  .links {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .link {
-    margin-bottom: 20px;
-  }
-
-  .link a {
-    font-size: x-large;
+  img {
+    height: 20rem;
+    width: auto;;
+    /* border: 1px solid var(--colour5); */
+    box-shadow: 0px 0px 4px var(--colour5);
   }
   
 </style>
