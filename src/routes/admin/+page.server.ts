@@ -1,6 +1,6 @@
 import type { PageServerLoad, Actions } from './$types';
 import { supabase } from '$lib/supabaseClient';
-import { ADMIN_EMAIL } from "$env/dynamic/private";
+import { ADMIN_EMAIL } from "$env/static/private";
 
 export const load: PageServerLoad = async ({ cookies }) => {
 	const emailcookie = cookies.get("useremail");
