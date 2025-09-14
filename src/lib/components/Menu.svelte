@@ -5,7 +5,6 @@
 
   function toggleMobileNav() {
     const mobileNav = document.querySelector(".mobile-nav");
-    mobileNav?.classList.toggle("hidden");
     mobileNavToggled = !mobileNavToggled;
   }
 </script>
@@ -48,34 +47,33 @@
   </ul>
 </div>
 
-
-<div class="mobile-nav hidden">
-  {#if mobileNavToggled}
-    <div class="pure-menu custom-restricted-width" in:fly={{y: '-100%'}} out:fly={{y: '100%'}} style="font-size: 1.5rem;">
-    <span class="pure-menu-heading">MENU</span>
-    <ul class="pure-menu-list">
-      <li class="pure-menu-item">
-        <a href="/" class="pure-menu-link" on:click={toggleMobileNav}>Home</a>
-      </li>
-      <li class="pure-menu-item">
-          <a href="/blog" class="pure-menu-link" on:click={toggleMobileNav}>Blog</a>
-      </li>
-      <li class="pure-menu-item">
-          <a href="/photos" class="pure-menu-link" on:click={toggleMobileNav}>Photos</a>
-      </li>
-      <li class="pure-menu-item">
-        <a href="/projects" class="pure-menu-link" on:click={toggleMobileNav}>Projects</a>
-      </li>
-      <li class="pure-menu-item">
-          <a href="https://github.com/joseppino" class="pure-menu-link" on:click={toggleMobileNav}>GitHub</a>
-      </li>
-      <li class="pure-menu-item">
-        <a href="https://docs.google.com/document/d/11FkygEOJKSYeWJd9Zr2Qc0kxyULZT-tPqJTxdvSpWGc/edit?usp=sharing" class="pure-menu-link" on:click={toggleMobileNav}>CV</a>
-      </li>
-    </ul>
+{#if mobileNavToggled}
+  <div class="mobile-nav">
+    <div class="pure-menu custom-restricted-width" in:fly={{ y: '-100%', duration: 300 }} out:fly={{ y: '-100%', duration: 300 }} style="font-size: 1.5rem;">
+      <span class="pure-menu-heading">MENU</span>
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          <a href="/" class="pure-menu-link" on:click={toggleMobileNav}>Home</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/blog" class="pure-menu-link" on:click={toggleMobileNav}>Blog</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/photos" class="pure-menu-link" on:click={toggleMobileNav}>Photos</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="/projects" class="pure-menu-link" on:click={toggleMobileNav}>Projects</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="https://github.com/joseppino" class="pure-menu-link" on:click={toggleMobileNav}>GitHub</a>
+        </li>
+        <li class="pure-menu-item">
+          <a href="https://docs.google.com/document/d/11FkygEOJKSYeWJd9Zr2Qc0kxyULZT-tPqJTxdvSpWGc/edit?usp=sharing" class="pure-menu-link" on:click={toggleMobileNav}>CV</a>
+        </li>
+      </ul>
     </div>
-  {/if}
-</div>
+  </div>
+{/if}
 
 <style>
   a {
